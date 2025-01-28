@@ -24,7 +24,6 @@ router.post("/user/save", (request, response) => {
         else 
         {
             var salt = bcrypt.genSaltSync(10)
-            console.log(salt)
             var hash = bcrypt.hashSync(password, salt)
             User.create({
                 username: username,

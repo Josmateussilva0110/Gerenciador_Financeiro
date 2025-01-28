@@ -8,3 +8,124 @@ body {
     background-color: #f8f9fa;
 }
 
+.footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 0.7rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgba(52, 58, 64, 0.85);
+    padding: 0.5rem;
+  }
+  
+.menu-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    margin: 0 1rem;
+    position: relative;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.menu-item a:hover {
+    color: #f39c12;
+}
+
+/* Linha animada ao passar o mouse */
+.menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #f39c12;
+    transition: width 0.3s ease;
+}
+
+.menu-item:hover::after {
+    width: 100%;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 2rem; 
+    transform: translateY(-20px);
+}
+
+
+.background-container {
+    background-image: url('../img/fundo_01.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 90vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; 
+    height: auto; 
+    padding: 2rem;
+    background-color: rgba(52, 58, 64, 0.85); 
+    border-radius: 25px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-30px);
+}
+
+.form-container input {
+    width: 100%; /* Mantém a largura ajustável dentro do container */
+    max-width: 400px; /* Aumenta o valor máximo da largura */
+    height: 2.7rem; /* Define uma altura maior */
+    padding: 1rem; /* Adiciona mais preenchimento interno */
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem; /* Aumenta o tamanho do texto */
+}
+
+
+.btn {
+    margin-top: 0.5rem;
+    background-color: #f39c12;
+    color: white;
+    padding: 0.7rem 1.8rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e67e22; 
+}

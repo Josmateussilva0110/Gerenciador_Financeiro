@@ -1,20 +1,24 @@
 <%- include('../../partials/header', { title: 'Criar Usuário' }) %>
 
-<h1>create user</h1>
 
-<form action="/user/save" method="POST">
-  <div>
-    <label for="name">Nome</label>
-    <input type="text" name="name" id="name", required>
-  </div>
-  <div>
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email", required>
-  </div>
-  <div>
-    <label for="password">Senha</label>
-    <input type="password" name="password" id="password", required>
-  </div>
-  <button type="submit">Criar</button>
+<div class="background-container">
+    <div class="page-title">
+        <h1>Criar Conta</h1>
+    </div>
+  <div class="form-container">    
+    <form action="/user/save" method="POST">
+        <div>
+            <input type="text" name="name" id="name" placeholder="Nome" required>
+        </div>
+        <div>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+        </div>
+        <div>
+            <input type="password" name="password" id="password" placeholder="Senha" required>
+        </div>
+        <button class="btn" type="submit">Criar</button>
+    </form>
+    </div>
+</div>
 
 <%- include('../../partials/footer') %>
