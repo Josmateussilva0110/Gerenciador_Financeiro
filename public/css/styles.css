@@ -78,7 +78,6 @@ body {
 
 
 .background-container {
-    background-image: url('../img/fundo_01.jpg');
     background-size: cover;
     background-position: center;
     height: 90vh; 
