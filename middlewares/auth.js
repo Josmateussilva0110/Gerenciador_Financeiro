@@ -1,6 +1,6 @@
 function auth(request, response, next) {
     if(request.session.user != undefined) next()
-    else response.redirect("/user/login")
+    else response.render("admin/users/expired_session")
 }
 
 module.exports = auth
