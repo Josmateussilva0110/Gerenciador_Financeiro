@@ -4,6 +4,7 @@ const body_parser = require("body-parser")
 const path = require("path");
 const session = require("express-session")
 const user_controller = require("./users/users_controller")
+const product_controller = require("./products/product_controller")
 const auth = require("./middlewares/auth")
 
 
@@ -18,7 +19,8 @@ app.use(Express.static('public'))
 
 app.use(session({
     secret: "4002-8922",
-    cookie: {maxAge: 5000} // expira em 2 horas
+    cookie: {maxAge: 7200000} // expira em 2 horas
+    // cookie: {maxAge: 5000}
 }))
 
 
@@ -35,6 +37,7 @@ connection.authenticate().then(() => {
 
 
 app.use("/", user_controller)
+app.use("/", product_controller)
 
 app.get("/", (request, response) => {
     response.render("home")
