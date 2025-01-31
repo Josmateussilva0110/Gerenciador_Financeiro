@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs")
 const router = express.Router()
 
 router.get("/product/create", (request, response) => {
-    response.send("rota de cadastro de produto.")
+    response.render("admin/products/create_product")
 })
 
 

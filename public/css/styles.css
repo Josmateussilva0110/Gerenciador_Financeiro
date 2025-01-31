@@ -13,7 +13,7 @@ body {
     background-color: #343a40;
     color: white;
     text-align: center;
-    padding: 0.7rem;
+    padding: 0.5rem;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -24,7 +24,7 @@ body {
     justify-content: flex-end;
     align-items: center;
     background-color: rgba(52, 58, 64, 0.85);
-    padding: 0.5rem;
+    padding: 0.3rem;
   }
   
 .menu-list {
@@ -71,8 +71,8 @@ body {
 .page-title {
     text-align: center;
     font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 2rem; 
+    color: #fff;
+    margin-bottom: 1rem; 
     transform: translateY(-20px);
 }
 
@@ -97,7 +97,7 @@ body {
     max-width: 400px; 
     height: auto; 
     padding: 2rem;
-    background-color: rgba(52, 58, 64, 0.85); 
+    background-color: rgba(146, 163, 182, 0.85); 
     border-radius: 25px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-30px);
@@ -105,7 +105,7 @@ body {
 
 .form-container input {
     width: 100%; /* Mantém a largura ajustável dentro do container */
-    max-width: 400px; /* Aumenta o valor máximo da largura */
+    max-width: 700px; /* Aumenta o valor máximo da largura */
     height: 2.7rem; /* Define uma altura maior */
     padding: 1rem; /* Adiciona mais preenchimento interno */
     margin: 0.5rem 0;
@@ -154,4 +154,124 @@ body {
 
 .expired-session a:hover {
     text-decoration: underline;
+}
+
+.form-group {
+    display: block;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 1rem;
+}
+
+.input-number {
+    display: flex;
+    align-items: center;
+}
+
+
+.radio-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group label {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-priority.high {
+    background-color: #da2121;
+    color: #fff;
+}
+
+.btn-priority.medium {
+    background-color: #d5e21e;
+    color: #333;
+}
+
+.btn-priority.low {
+    background-color: #1dc018f6;
+    color: #fff;
+}
+
+.btn-finalizado.yes {
+    background-color: #1dc018f6;
+    color: #fff;
+}
+
+.btn-finalizado.no {
+    background-color: #da2121;
+    color: #fff;
+}
+
+.radio-group input[type="radio"]:checked + label {
+    opacity: 0.8;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-submit,
+.btn-cancel {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.btn-cancel {
+    background-color: #da2121;
+    color: #fff;
+}
+
+.btn-cancel:hover {
+    background-color: #631111;
 }
