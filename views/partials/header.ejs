@@ -14,9 +14,15 @@
             <ul class="menu-list">
               <li class="menu-item"><a href="/">Home</a></li>
               <li class="menu-item"><a href="/users/create">Criar Conta</a></li>
-              <li class="menu-item"><a href="/user/login">Login</a></li>
-              <li class="menu-item"><a href="#">Contact</a></li>
+              <% if (user) { %>
+                  <!-- Exibe o link "Adicionar Produto" apenas se o usuário estiver logado -->
+                  <li class="menu-item"><a href="/product/create">Adicionar Produto</a></li>
+              <% } else { %>
+                  <!-- Exibe o link "Login" apenas se o usuário NÃO estiver logado -->
+                  <li class="menu-item"><a href="/user/login">Login</a></li>
+              <% } %>
             </ul>
         </nav>
     </header>
 </body>
+</html>

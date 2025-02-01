@@ -1,4 +1,42 @@
-<%- include('../../partials/header', { title: 'Criar Usuário' }) %>
+<style>
+    .expired-session {
+        text-align: center;
+        background-color: #93C5FD; /* Azul claro */
+        padding: 1.2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .expired-session h1 {
+        color: #1E3A8A; /* Azul principal */
+    }
+
+    .expired-session p {
+        font-size: 1rem;
+        color: #1E293B; /* Cor de texto */
+    }
+
+    .expired-session a {
+        color: #3B82F6; /* Azul secundário */
+        text-decoration: none;
+    }
+
+    .expired-session a:hover {
+        text-decoration: underline;
+    }
+
+    .footer {
+        background-color: #1E3A8A; /* Azul principal */
+        color: #F0F4F8; /* Cor de fundo */
+        text-align: center;
+        padding: 0.5rem;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+
+
 <div class="expired-session ">
     <h1>Sessão Expirada</h1>
     <p>Sua sessão expirou. Por favor, faça login novamente para continuar.</p>

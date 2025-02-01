@@ -41,7 +41,7 @@ router.post("/user/save", (request, response) => {
 })
 
 router.get("/user/login", (request, response) => {
-    response.render("admin/users/login_user")
+    response.render("admin/users/login_user", {user: request.session.user})
 })
 
 router.post("/user/authenticate", (request, response) => {

@@ -3,9 +3,20 @@ const Product = require("./Product")
 const { Op } = require("sequelize")
 const bcrypt = require("bcryptjs")
 const router = express.Router()
+const auth = require("../middlewares/auth")
+
+router.get("/products", auth, (request, response) => {
+    Product.findAll({
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(products => {
+        response.render("home", {products: products, user: request.session.user})
+    })
+})
 
 router.get("/product/create", (request, response) => {
-    response.render("admin/products/create_product")
+    response.render("admin/products/create_product", {user: request.session.user})
 })
 
 router.post("/product/save", (request, response) => {
