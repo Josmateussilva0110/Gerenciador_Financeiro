@@ -1,8 +1,8 @@
 <%- include('../../partials/header', { title: 'Cadastro de Produto' }) %>
 
-<div class="background-container" style="background-image: url('../img/fundo_03.jpg');">
+<div class="background-container" style="background-image: url('../img/fundo_04.jpg');">
     <div class="page-title">
-        <h4>Cadastrar Produto</h4>
+        <h3>Cadastrar Produto</h3>
     </div>
     <div class="form-container">   
         <form action="#" method="POST">
@@ -18,27 +18,27 @@
                 </div>
             </div>
 
-            <fieldset class="form-group">
+            <fieldset class="form-group" id="priority-group">
                 <legend>Prioridade*</legend>
-                <div class="radio-group">
-                    <input type="radio" name="priority" id="priority-high" value="high" required>
+                <div class="checkbox-group">
+                    <input type="checkbox" name="priority" id="priority-high" value="Alta">
                     <label for="priority-high" class="btn-priority high">Alta</label>
-    
-                    <input type="radio" name="priority" id="priority-medium" value="medium" required>
+            
+                    <input type="checkbox" name="priority" id="priority-medium" value="Medio">
                     <label for="priority-medium" class="btn-priority medium">Média</label>
-    
-                    <input type="radio" name="priority" id="priority-low" value="low" required>
+            
+                    <input type="checkbox" name="priority" id="priority-low" value="Baixo">
                     <label for="priority-low" class="btn-priority low">Baixa</label>
                 </div>
             </fieldset>
 
-            <fieldset class="form-group">
+            <fieldset class="form-group" id="finalizado-group">
                 <legend>Finalizado*</legend>
-                <div class="radio-group">
-                    <input type="radio" name="finalizado" id="finalizado-sim" value="sim" required>
+                <div class="checkbox-group">
+                    <input type="checkbox" name="finalizado" id="finalizado-sim" value="Sim" required>
                     <label for="finalizado-sim" class="btn-finalizado yes">Sim</label>
     
-                    <input type="radio" name="finalizado" id="finalizado-nao" value="nao" required>
+                    <input type="checkbox" name="finalizado" id="finalizado-nao" value="Nao" required>
                     <label for="finalizado-nao" class="btn-finalizado no">Não</label>
                 </div>
             </fieldset>
