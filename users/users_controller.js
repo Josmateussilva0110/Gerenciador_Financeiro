@@ -35,7 +35,9 @@ router.post("/user/save", (request, response) => {
                 response.redirect("/users/create")
             })
         }
-    }).catch()
+    }).catch((err) => {
+        response.redirect("/users/create")
+    })
 })
 
 router.get("/user/login", (request, response) => {

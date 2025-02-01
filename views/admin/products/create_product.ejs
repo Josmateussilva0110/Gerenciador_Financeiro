@@ -5,7 +5,7 @@
         <h3>Cadastrar Produto</h3>
     </div>
     <div class="form-container">   
-        <form action="#" method="POST">
+        <form action="/product/save" method="POST">
             <div class="form-group">
                 <label for="name">Item*</label>
                 <input type="text" name="name" id="name" placeholder="Nome do item" required>
@@ -20,25 +20,26 @@
 
             <fieldset class="form-group" id="priority-group">
                 <legend>Prioridade*</legend>
-                <div class="checkbox-group">
-                    <input type="checkbox" name="priority" id="priority-high" value="Alta">
+                <div class="radio-group">
+                    <input type="radio" name="priority" id="priority-high" value="Alta">
                     <label for="priority-high" class="btn-priority high">Alta</label>
             
-                    <input type="checkbox" name="priority" id="priority-medium" value="Medio">
+                    <input type="radio" name="priority" id="priority-medium" value="Medio">
                     <label for="priority-medium" class="btn-priority medium">Média</label>
             
-                    <input type="checkbox" name="priority" id="priority-low" value="Baixo">
+                    <input type="radio" name="priority" id="priority-low" value="Baixo">
                     <label for="priority-low" class="btn-priority low">Baixa</label>
                 </div>
             </fieldset>
+                    
 
             <fieldset class="form-group" id="finalizado-group">
                 <legend>Finalizado*</legend>
-                <div class="checkbox-group">
-                    <input type="checkbox" name="finalizado" id="finalizado-sim" value="Sim" required>
+                <div class="radio-group">
+                    <input type="radio" name="finalizado" id="finalizado-sim" value="Sim">
                     <label for="finalizado-sim" class="btn-finalizado yes">Sim</label>
     
-                    <input type="checkbox" name="finalizado" id="finalizado-nao" value="Nao" required>
+                    <input type="radio" name="finalizado" id="finalizado-nao" value="Nao">
                     <label for="finalizado-nao" class="btn-finalizado no">Não</label>
                 </div>
             </fieldset>
@@ -57,3 +58,14 @@
 </div>
 
 <%- include('../../partials/footer') %>
+
+<script>
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+    radio.addEventListener('click', (e) => {
+        if (radio.checked && radio.previousSelection) {
+            radio.checked = false;
+        }
+        radio.previousSelection = radio.checked;
+    });
+});
+</script>

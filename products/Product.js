@@ -20,7 +20,7 @@ const Product = connection.define('products', {
         allowNull: false
     },
     date: {
-        type: sequelize.DATE,
+        type: sequelize.DATEONLY,  // Apenas data sem hora
         allowNull: false
     }
 })
