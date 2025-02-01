@@ -16,7 +16,7 @@ const Product = connection.define('products', {
         allowNull: false
     },
     finished: {
-        type: sequelize.BOOLEAN,
+        type: sequelize.STRING,
         allowNull: false
     },
     date: {

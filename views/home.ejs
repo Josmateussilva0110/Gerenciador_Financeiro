@@ -1,5 +1,29 @@
 <%- include('./partials/header', { title: 'Home' }) %>
 
-<h1>Hello World!</h1>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Prioridade</th>
+            <th>Finalizado</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% products.forEach(product => { %>
+            <tr>
+                <td><%= product.name %></td>
+                <td><%= product.price %></td>
+                <td><%= product.priority %></td>
+                <td><%= product.finished %></td>
+                <td>
+                    <a href="/product/edit/<%= product.id %>" class="details-link">Detalhes</a>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
 
 <%- include('./partials/footer') %>

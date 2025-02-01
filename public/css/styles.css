@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #F0F4F8; /* Cor de fundo */
+    background-color: #d0d7dd; /* Cor de fundo */
     font-family: "IBM Plex Sans", sans-serif;
     color: #1E293B; /* Cor de texto */
 }
@@ -80,7 +80,7 @@ body {
 .background-container {
     background-size: cover;
     background-position: center;
-    height: 90vh; 
+    height: 92vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -305,3 +305,51 @@ fieldset {
     opacity: 0.6;
 }
 
+
+.styled-table {
+    width: 98%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    font-size: 1em;
+    font-family: 'Archivo', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f3f3;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #000000;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: white;
+    text-align: center;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 0.7rem 1rem;
+    border: 1px solid #000000;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.details-link {
+    color: #009879;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.details-link:hover {
+    text-decoration: underline;
+}

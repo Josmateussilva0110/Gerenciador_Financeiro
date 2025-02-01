@@ -5,6 +5,7 @@ const path = require("path");
 const session = require("express-session")
 const user_controller = require("./users/users_controller")
 const product_controller = require("./products/product_controller")
+const product = require("./products/Product")
 const auth = require("./middlewares/auth")
 
 
@@ -40,7 +41,13 @@ app.use("/", user_controller)
 app.use("/", product_controller)
 
 app.get("/", (request, response) => {
-    response.render("home")
+    product.findAll({
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(products => {
+        response.render("home", {products: products})
+    })
 })
 
 

@@ -12,7 +12,7 @@ router.post("/product/save", (request, response) => {
     var name = request.body.name
     var price = request.body.price
     var priority = request.body.priority 
-    var finished = request.body.finalizado === "Sim" ? true : false;
+    var finished = request.body.finished
     var date = request.body.date
     Product.findOne({
         where: {
