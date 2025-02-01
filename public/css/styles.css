@@ -330,6 +330,7 @@ fieldset {
 .styled-table td {
     padding: 0.7rem 1rem;
     border: 1px solid #000000;
+    position: relative;
 }
 
 .styled-table tbody tr {
@@ -352,4 +353,15 @@ fieldset {
 
 .details-link:hover {
     text-decoration: underline;
+}
+
+.resizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0.2rem;
+    height: 100%;
+    background-color: #ffffff;
+    cursor: col-resize;
+    user-select: none;
 }

@@ -3,11 +3,11 @@
 <table class="styled-table">
     <thead>
         <tr>
-            <th>Nome</th>
-            <th>Preço</th>
-            <th>Prioridade</th>
-            <th>Finalizado</th>
-            <th>Ações</th>
+            <th>Nome <div class="resizer"></div></th>
+            <th>Preço <div class="resizer"></div></th>
+            <th>Prioridade <div class="resizer"></div></th>
+            <th>Finalizado <div class="resizer"></div></th>
+            <th>Ações <div class="resizer"></div></th>
         </tr>
     </thead>
     <tbody>
@@ -27,3 +27,32 @@
 
 
 <%- include('./partials/footer') %>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const resizableTable = document.querySelector('.styled-table');
+        const thElements = resizableTable.querySelectorAll('th');
+
+        thElements.forEach(th => {
+            const resizer = th.querySelector('.resizer');
+            let startX, startWidth;
+
+            resizer.addEventListener('mousedown', (e) => {
+                startX = e.clientX;
+                startWidth = th.offsetWidth;
+                document.addEventListener('mousemove', resize);
+                document.addEventListener('mouseup', stopResize);
+            });
+
+            function resize(e) {
+                const newWidth = startWidth + (e.clientX - startX);
+                th.style.width = `${newWidth}px`;
+            }
+
+            function stopResize() {
+                document.removeEventListener('mousemove', resize);
+                document.removeEventListener('mouseup', stopResize);
+            }
+        });
+    });
+</script>
