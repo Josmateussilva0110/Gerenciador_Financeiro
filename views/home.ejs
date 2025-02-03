@@ -13,14 +13,46 @@
     <tbody>
         <% products.forEach(product => { %>
             <tr>
-                <td><%= product.name %></td>
-                <td><%= product.price %></td>
-                <td><%= product.priority %></td>
-                <td><%= product.finished %></td>
+                <td>
+                    <div class="image_table">
+                        <span><%= product.name %></span>
+                        <img src="../img/produtos.png" alt="Ícone">
+                    </div>
+                </td>
+                <td>
+                    <div class="image_table">
+                        <span><%= product.price %></span>
+                        <img src="../img/dinheiro.png" alt="Ícone">
+                    </div>
+                </td>
+                <td>
+                    <div class="image_table">
+                        <span><%= product.priority %></span>
+                        <% if (product.priority === 'Alta') { %>
+                            <img src="../img/alta.png" alt="Ícone Alta">
+                        <% } else if (product.priority === 'Medio') { %>
+                            <img src="../img/media.png" alt="Ícone Média">
+                        <% } else { %>
+                            <img src="../img/baixo.png" alt="Ícone Baixa">
+                        <% } %>
+                    </div>
+                </td>
+                
+                <td>
+                    <div class="image_table">
+                        <span><%= product.finished %></span>
+                        <% if (product.finished === 'Sim') { %>
+                            <img src="../img/sim.png" alt="Ícone Alta">
+                        <% } else { %>
+                            <img src="../img/nao.png" alt="Ícone Baixa">
+                        <% } %>
+                    </div>
+                </td>
                 <td>
                     <a href="/product/edit/<%= product.id %>" class="details-link">Detalhes</a>
                 </td>
             </tr>
+              
         <% }) %>
     </tbody>
 </table>

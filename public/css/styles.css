@@ -366,3 +366,15 @@ fieldset {
     cursor: col-resize;
     user-select: none;
 }
+
+.image_table {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.image_table img {
+    width: 24px;
+    height: 24px;
+    margin-left: auto; /* Força a imagem para a direita */
+}
