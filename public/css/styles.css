@@ -378,3 +378,17 @@ fieldset {
     height: 24px;
     margin-left: auto; /* Força a imagem para a direita */
 }
+.row-resizer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.2rem;
+    width: 100%;
+    background-color: #c4c2c2;
+    cursor: row-resize;
+    user-select: none;
+}
+.styled-table tr {
+    position: relative;
+}
+
