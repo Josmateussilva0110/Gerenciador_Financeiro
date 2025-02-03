@@ -6,7 +6,7 @@ const router = express.Router()
 
 
 router.get("/users/create", (request, response) => {
-    response.render("admin/users/create_user")
+    response.render("admin/users/create_user", {user: request.session.user})
 })
 
 router.post("/user/save", (request, response) => {
@@ -62,13 +62,18 @@ router.post("/user/authenticate", (request, response) => {
                     id: user.id,
                     username: user.email
                 }
-                response.redirect("/")
+                response.redirect("/products")
             }
             else {
                 response.redirect("/user/login")
             }
         }
     })
+})
+
+router.get("/logout", (request, response) => {
+    request.session.user = undefined
+    response.redirect("/")
 })
 
 module.exports = router

@@ -8,6 +8,7 @@ body {
     background-color: #d0d7dd; /* Cor de fundo */
     font-family: "IBM Plex Sans", sans-serif;
     color: #1E293B; /* Cor de texto */
+    overflow: hidden;
 }
 
 .footer {
@@ -80,7 +81,7 @@ body {
 .background-container {
     background-size: cover;
     background-position: center;
-    height: 92vh; 
+    height: 100vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;

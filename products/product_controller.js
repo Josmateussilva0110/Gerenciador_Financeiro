@@ -41,7 +41,7 @@ router.post("/product/save", (request, response) => {
                 finished: finished,
                 date: date
             }).then(() => {
-                response.redirect("/")
+                response.redirect("/products")
             }).catch((err) => {
                 response.redirect("/product/create")
             })
