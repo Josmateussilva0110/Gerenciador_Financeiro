@@ -51,7 +51,7 @@ router.post("/product/save", (request, response) => {
     })
 })
 
-router.get("/product/edit/:id", (request, response) => {
+router.get("/product/detail/:id", (request, response) => {
     var id = request.params.id
     Product.findOne({
         where: {
@@ -60,6 +60,28 @@ router.get("/product/edit/:id", (request, response) => {
     }).then(product => {
         response.render("admin/products/detail_product", {product: product, user: request.session.user})
     })
+})
+
+router.post("/product/delete", (request, response) => {
+    var id = request.body.id
+    if(id == undefined)
+        response.redirect("/products")
+    else {
+        if(isNaN(id)) {
+            response.redirect("/products")
+        }
+        else {
+            Product.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => {
+                response.redirect("/products")
+            }).catch((err) => {
+                response.redirect("/products")
+            })
+        }
+    }
 })
 
 module.exports = router

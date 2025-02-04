@@ -401,13 +401,31 @@ fieldset {
     border-radius: 25px;
     max-width: 470px;
     margin: 12rem auto;
+    margin-top: -1rem;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease;
 }
 
-.product-details {
-    margin-top: 1.5rem;
-    text-align: center;
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; 
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+
+.product-details {
+    background-color: #F3F4F6;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 
 .product-title {
     font-size: 2rem;
@@ -430,31 +448,33 @@ fieldset {
 }
 
 .btn-edit {
-    background-color: #FFD700;
+    background-color: #FFC107;
     color: #1E293B;
-    padding: 0.7rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s;
+    padding: 0.8rem 1.6rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
-
 .btn-edit:hover {
-    background-color: #e0b500;
-    transform: scale(1.05);
+    background-color: #FFD54F;
+    transform: translateY(-3px);
 }
 
 .btn-secondary {
-    background-color: #EF4444;
-    color: #fff;
-    padding: 0.7rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s;
+    background-color: #DC2626;
+    color: white;
+    padding: 0.8rem 1.6rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+    background-color: #F87171;
+    transform: translateY(-3px);
 }
 
-.btn-secondary:hover {
-    background-color: #6b1b1b;
-    transform: scale(1.05);
+#detail-body-priority {
+    color: #a32828;
+}
+
+#detail-body-finished {
+    color: #dbaa09;
 }

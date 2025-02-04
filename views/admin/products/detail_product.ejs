@@ -1,18 +1,34 @@
 <%- include('../../partials/header', { title: 'Detalhes' }) %>
 
-<div class="product-container">
+<div class="background-container" style="background-image: url('/img/fundo_05.png');">
+  <div class="page-title">
+    <h1>Detalhes</h1>
+  </div>
+  <div class="product-container">
     <div class="product-details">
-      <h1 class="product-title"><%= product.name %></h1>
-      <p class="product-body"><%= product.price %></p>
-      <p class="product-body"><%= product.priority %></p>
-      <p class="product-body"><%= product.finished %></p>
+      <h1 class="product-title">Nome: <%= product.name %></h1>
+      <p class="product-body">Preço: <%= product.price %></p>
+      <p id="detail-body-priority" class="product-body">Prioridade: <%= product.priority %></p>
+      <p id="detail-body-finished" class="product-body">Finalizado: <%= product.finished %></p>
     </div>
 
     <div class="actions">
       <button class="btn-edit">Editar Produto</button>
-      <button class="btn-secondary">Deletar Produto</button>
+      <form method="post" action="/product/delete" style="display: inline;" onsubmit="confirmar_delecao(event, this)">
+          <input type="hidden" name="id" value="<%= product.id %>">
+          <button class="btn-secondary">Deletar Produto</button>
+      </form>
     </div>
 </div>
 
-
+</div>
 <%- include('../../partials/footer') %>
+
+<script>
+  function confirmar_delecao(event, form) {
+      event.preventDefault()
+      // console.log("o formulário não foi enviado")
+      var decision = confirm("deseja deleta ?")
+      if(decision) form.submit()
+  }
+</script>
