@@ -1,0 +1,18 @@
+<%- include('../../partials/header', { title: 'Detalhes' }) %>
+
+<div class="product-container">
+    <div class="product-details">
+      <h1 class="product-title"><%= product.name %></h1>
+      <p class="product-body"><%= product.price %></p>
+      <p class="product-body"><%= product.priority %></p>
+      <p class="product-body"><%= product.finished %></p>
+    </div>
+
+    <div class="actions">
+      <button class="btn-edit">Editar Produto</button>
+      <button class="btn-secondary">Deletar Produto</button>
+    </div>
+</div>
+
+
+<%- include('../../partials/footer') %>

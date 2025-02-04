@@ -51,5 +51,15 @@ router.post("/product/save", (request, response) => {
     })
 })
 
+router.get("/product/edit/:id", (request, response) => {
+    var id = request.params.id
+    Product.findOne({
+        where: {
+            id: id
+        }
+    }).then(product => {
+        response.render("admin/products/detail_product", {product: product, user: request.session.user})
+    })
+})
 
 module.exports = router
