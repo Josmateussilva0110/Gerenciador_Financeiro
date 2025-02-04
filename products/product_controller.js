@@ -84,4 +84,30 @@ router.post("/product/delete", (request, response) => {
     }
 })
 
+router.get("/product/edit/:id", (request, response) => {
+    var id = parseInt(request.params.id) 
+    if(isNaN(id)) {
+        response.redirect("/products")
+    }
+    else {
+        Product.findByPk(id).then(product => {
+            response.render("admin/products/edit_product", {product: product, user: request.session.user})
+        }).catch((err) => {
+            response.redirect("/products")
+        })
+    }
+})
+
+router.post("/product/update", (request, response) => {
+    const { id, name, price, priority, finished, date } = request.body
+
+    Product.update(
+        { name, price, priority, finished, date },
+        { where: { id } }
+    )
+    .then(() => response.redirect("/products"))
+    .catch(err => response.redirect("/products"))
+})
+
+
 module.exports = router

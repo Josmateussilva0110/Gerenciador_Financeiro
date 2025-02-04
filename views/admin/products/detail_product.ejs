@@ -13,7 +13,7 @@
     </div>
 
     <div class="actions">
-      <button class="btn-edit">Editar Produto</button>
+      <a href="/product/edit/<%= product.id %>" class="btn-edit">Editar Produto</a>
       <form method="post" action="/product/delete" style="display: inline;" onsubmit="confirmar_delecao(event, this)">
           <input type="hidden" name="id" value="<%= product.id %>">
           <button class="btn-secondary">Deletar Produto</button>
