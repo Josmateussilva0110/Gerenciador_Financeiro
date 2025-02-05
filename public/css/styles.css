@@ -326,7 +326,7 @@ fieldset {
     max-width: 400px;
     padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #b4b2b2;
     border-radius: 6px;
 }
 
@@ -535,4 +535,20 @@ fieldset {
 
 #detail-body-finished {
     color: #dbaa09;
+}
+
+#searchButton {
+    background-color: #1E3A8A;
+    color: #F0F4F8;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#searchButton:hover {
+    background-color: #3f67d3;
+    transform: translateY(-2px);
 }

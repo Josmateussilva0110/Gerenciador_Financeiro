@@ -130,4 +130,32 @@ router.get("/products/nao", (request, response) => {
     })
 })
 
+router.get("/products/search", (request, response) => {
+    const search_term = request.query.term
+
+    if (!search_term) {
+        return response.redirect("/products")
+    }
+
+    Product.findAll({
+        where: {
+            [Op.or]: [
+                { name: { [Op.like]: `%${search_term}%` } },
+                { price: { [Op.like]: `%${search_term}%` } },
+                { priority: { [Op.like]: `%${search_term}%` } },
+                { finished: { [Op.like]: `%${search_term}%` } },
+                { date: { [Op.like]: `%${search_term}%` } }
+            ]
+        },
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(products => {
+        response.render("home", { products: products, user: request.session.user })
+    }).catch(err => {
+        console.error(err)
+        response.redirect("/products")
+    })
+})
+
 module.exports = router
