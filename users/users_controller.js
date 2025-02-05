@@ -60,7 +60,8 @@ router.post("/user/authenticate", (request, response) => {
             if(correct_password) {
                 request.session.user = {
                     id: user.id,
-                    username: user.email
+                    email: user.email,
+                    username: user.username
                 }
                 response.redirect("/products")
             }
