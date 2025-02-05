@@ -110,4 +110,24 @@ router.post("/product/update", (request, response) => {
 })
 
 
+router.get("/products/sim", (request, response) => {
+    Product.findAll({
+        where: {
+            finished: 'Sim'
+        }
+    }).then(products => {
+        response.render("home", {products: products, user: request.session.user})
+    })
+})
+
+router.get("/products/nao", (request, response) => {
+    Product.findAll({
+        where: {
+            finished: 'Nao'
+        }
+    }).then(products => {
+        response.render("home", {products: products, user: request.session.user})
+    })
+})
+
 module.exports = router
