@@ -6,7 +6,7 @@ const router = express.Router()
 
 
 router.get("/users/create", (request, response) => {
-    response.render("admin/users/create_user", {user: request.session.user})
+    response.render("admin/users/create_user")
 })
 
 router.post("/user/save", (request, response) => {
@@ -41,7 +41,7 @@ router.post("/user/save", (request, response) => {
 })
 
 router.get("/user/login", (request, response) => {
-    response.render("admin/users/login_user", {user: request.session.user})
+    response.render("admin/users/login_user", { user: null, title: 'Login' })
 })
 
 router.post("/user/authenticate", (request, response) => {

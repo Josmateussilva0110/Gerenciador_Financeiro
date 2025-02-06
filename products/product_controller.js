@@ -11,12 +11,12 @@ router.get("/products", auth, (request, response) => {
             ['id', 'DESC']
         ]
     }).then(products => {
-        response.render("home", {products: products, user: request.session.user})
+        response.render("home", {products: products})
     })
 })
 
-router.get("/product/create", (request, response) => {
-    response.render("admin/products/create_product", {user: request.session.user})
+router.get("/product/create", auth, (request, response) => {
+    response.render("admin/products/create_product")
 })
 
 router.post("/product/save", (request, response) => {
@@ -51,18 +51,18 @@ router.post("/product/save", (request, response) => {
     })
 })
 
-router.get("/product/detail/:id", (request, response) => {
+router.get("/product/detail/:id", auth, (request, response) => {
     var id = request.params.id
     Product.findOne({
         where: {
             id: id
         }
     }).then(product => {
-        response.render("admin/products/detail_product", {product: product, user: request.session.user})
+        response.render("admin/products/detail_product", {product: product})
     })
 })
 
-router.post("/product/delete", (request, response) => {
+router.post("/product/delete", auth, (request, response) => {
     var id = request.body.id
     if(id == undefined)
         response.redirect("/products")
@@ -84,21 +84,21 @@ router.post("/product/delete", (request, response) => {
     }
 })
 
-router.get("/product/edit/:id", (request, response) => {
+router.get("/product/edit/:id", auth, (request, response) => {
     var id = parseInt(request.params.id) 
     if(isNaN(id)) {
         response.redirect("/products")
     }
     else {
         Product.findByPk(id).then(product => {
-            response.render("admin/products/edit_product", {product: product, user: request.session.user})
+            response.render("admin/products/edit_product", {product: product})
         }).catch((err) => {
             response.redirect("/products")
         })
     }
 })
 
-router.post("/product/update", (request, response) => {
+router.post("/product/update", auth, (request, response) => {
     const { id, name, price, priority, finished, date } = request.body
 
     Product.update(
@@ -110,27 +110,27 @@ router.post("/product/update", (request, response) => {
 })
 
 
-router.get("/products/sim", (request, response) => {
+router.get("/products/sim", auth, (request, response) => {
     Product.findAll({
         where: {
             finished: 'Sim'
         }
     }).then(products => {
-        response.render("home", {products: products, user: request.session.user})
+        response.render("home", {products: products})
     })
 })
 
-router.get("/products/nao", (request, response) => {
+router.get("/products/nao", auth, (request, response) => {
     Product.findAll({
         where: {
             finished: 'Nao'
         }
     }).then(products => {
-        response.render("home", {products: products, user: request.session.user})
+        response.render("home", {products: products})
     })
 })
 
-router.get("/products/search", (request, response) => {
+router.get("/products/search", auth, (request, response) => {
     const search_term = request.query.term
 
     if (!search_term) {
@@ -151,7 +151,7 @@ router.get("/products/search", (request, response) => {
             ['id', 'DESC']
         ]
     }).then(products => {
-        response.render("home", { products: products, user: request.session.user })
+        response.render("home", { products: products})
     }).catch(err => {
         console.error(err)
         response.redirect("/products")

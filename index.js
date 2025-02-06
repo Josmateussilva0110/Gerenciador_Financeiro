@@ -6,6 +6,7 @@ const session = require("express-session")
 const user_controller = require("./users/users_controller")
 const product_controller = require("./products/product_controller")
 const product = require("./products/Product")
+const auth = require("./middlewares/auth")
 
 
 const app = Express()
@@ -19,8 +20,10 @@ app.use(Express.static('public'))
 
 app.use(session({
     secret: "4002-8922",
-    cookie: {maxAge: 72000000} // expira em 2 horas
-    //cookie: {maxAge: 20000}
+    cookie: {maxAge: 7200000}, // expira em 2 horas
+    //cookie: {maxAge: 10000},
+    resave: false,
+    saveUninitialized: false
 }))
 
 
@@ -38,6 +41,9 @@ connection.authenticate().then(() => {
 
 app.use("/", user_controller)
 app.use("/", product_controller)
+app.use("/products", auth);
+app.use("/product", auth);
+
 
 app.get("/", (request, response) => {
     response.send("Inicio")
