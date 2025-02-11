@@ -1,0 +1,11 @@
+<%- include('../../partials/header', { title: 'Perfil', user: user}) %>
+
+<div class="profile-container">
+    <h1 class="profile-header">Perfil do Usuário</h1>
+    <div class="profile-details">
+        <p><strong>Nome:</strong> <%= user.username %></p>
+        <p><strong>Email:</strong> <%= user.email %></p>
+    </div>
+</div>
+
+<%- include('../../partials/footer') %>
