@@ -77,4 +77,40 @@ router.get("/logout", (request, response) => {
     response.redirect("/")
 })
 
+
+router.get("/user/change-password/:id", (request, response) => {
+    var id = request.params.id
+    User.findByPk(id).then(user => {
+        if(user) {
+            response.render("admin/users/new_password", {user: user})
+        }
+        else  response.redirect("/products")
+    }).catch((err) => {
+        response.redirect("/products")
+    })
+})
+
+
+router.post("/user/password/new/save", async (request, response) => {
+    const {id, password, confirm_password, current_password} = request.body
+
+    try {
+        const user = await User.findByPk(id)
+        if(!user) return response.redirect("/products")
+        if(password !== confirm_password) {
+            return response.render("admin/users/new_password", {user: user})
+        }
+        const valid = bcrypt.compareSync(current_password, user.password)
+        if(!valid) {
+            return response.render("admin/users/new_password", {user: user})
+        }
+        const salt = bcrypt.genSaltSync(10)
+        const hashed_password = bcrypt.hashSync(password, salt)
+        await User.update({ password: hashed_password }, { where: { id: id } })
+        response.redirect("/products")
+    } catch (err) {
+        response.render("admin/users/new_password", {user: {id: id}})
+    }
+})
+
 module.exports = router
