@@ -94,6 +94,7 @@ body {
 .form-container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     width: 100%;
     max-width: 370px; 
@@ -114,8 +115,16 @@ body {
     border-radius: 5px;
     border: none;
     font-size: 1rem; 
-    background-color: #F0F4F8; /* Cor de fundo */
-    color: #1E293B; /* Cor de texto */
+    background-color: #F0F4F8; 
+    color: #1E293B; 
+}
+
+.form-container label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #1E293B;
+    text-align: left;
 }
 
 .btn {
@@ -592,4 +601,30 @@ fieldset {
 
 .dropdown.right .dropdown-content {
     right: 0;
+}
+
+.profile-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    background-color: rgba(147, 197, 253, 0.85);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.profile-header {
+    text-align: center;
+    color: #1E3A8A;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.profile-details {
+    background-color: #F3F4F6;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    color: #1E293B;
+}
+.profile-details p {
+    margin: 0.5rem 0;
 }

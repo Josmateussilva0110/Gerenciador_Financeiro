@@ -19,7 +19,7 @@
                   <li class="menu-item dropdown right">
                     <a href="#" class="dropbtn"><%= user.username %></a>
                     <div class="dropdown-content">
-                        <a href="/profile">Perfil</a>
+                        <a href="/user/profile/<%= user.id %>">Perfil</a>
                         <a href="/user/change-password/<%= user.id %>" rel="noopener noreferrer">Alterar senha</a>
                         <a href="/logout">Sair</a>
                     </div>

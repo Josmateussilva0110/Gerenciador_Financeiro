@@ -113,4 +113,13 @@ router.post("/user/password/new/save", async (request, response) => {
     }
 })
 
+router.get("/user/profile/:id", (request, response) => {
+    var id = request.params.id
+    User.findByPk(id).then(user => {
+        response.render("admin/users/user_profile", {user: user})
+    }).catch((err) => {
+        response.redirect("/products")
+    })
+})
+
 module.exports = router
