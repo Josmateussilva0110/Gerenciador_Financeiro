@@ -14,19 +14,22 @@
         <div class="form-container">    
             <form action="/user/save" method="POST">
                 <div>
+                    <label for="username">Nome</label>
                     <input type="text" name="username" id="username" placeholder="Nome" value="<%= username %>" required>
                     <div class="form_error">
                         <%= username_err %>
                     </div>
                 </div>
                 <div>
-                    <input type="email" name="email" id="email" placeholder="Email" value="<%= email %>"  required>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="exemplo@gmail.com" value="<%= email %>"  required>
                     <div class="form_error">
                         <%= email_err %>
                     </div>
                 </div>
                 <div>
-                    <input type="password" name="password" id="password" placeholder="Senha" value="<%= password %>"  required>
+                    <label for="password">Senha</label>
+                    <input type="password" name="password" id="password" placeholder="******" value="<%= password %>"  required>
                     <div class="form_error">
                         <%= password_err %>
                     </div>
