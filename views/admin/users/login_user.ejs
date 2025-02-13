@@ -7,10 +7,18 @@
     <div class="form-container">    
         <form action="/user/authenticate" method="POST">
             <div>
-                <input type="email" name="email" id="email" placeholder="Email" required>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="exemplo@gmail.com" value="<%= email %>"  required>
+                <div class="form_error">
+                    <%= email_err %>
+                </div>
             </div>
             <div>
-                <input type="password" name="password" id="password" placeholder="Senha" required>
+                <label for="password">Senha</label>
+                <input type="password" name="password" id="password" placeholder="******" value="<%= password %>"  required>
+                <div class="form_error">
+                    <%= password_err %>
+                </div>
             </div>
             <button class="btn" type="submit">Logar</button>
         </form>
@@ -18,3 +26,4 @@
 </div>
 
 <%- include('../../partials/footer') %>
+
