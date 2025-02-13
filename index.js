@@ -1,12 +1,14 @@
 const connection = require("./database/connection")
 const Express = require("express")
 const body_parser = require("body-parser")
-const path = require("path");
+const path = require("path")
 const session = require("express-session")
 const user_controller = require("./users/users_controller")
 const product_controller = require("./products/product_controller")
 const product = require("./products/Product")
 const auth = require("./middlewares/auth")
+const cookieParser = require("cookie-parser")
+const flash = require("express-flash")
 
 
 const app = Express()
@@ -17,6 +19,8 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(Express.static('public'))
 
+app.use(cookieParser("6437647637463764736473"))
+
 
 app.use(session({
     secret: "4002-8922",
@@ -25,6 +29,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
+
+app.use(flash())
 
 
 

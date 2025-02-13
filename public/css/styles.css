@@ -628,3 +628,8 @@ fieldset {
 .profile-details p {
     margin: 0.5rem 0;
 }
+
+.form_error {
+    color: #EF4444 !important;
+    font-size: 0.9rem;
+}

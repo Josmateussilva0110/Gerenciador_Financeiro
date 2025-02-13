@@ -3,42 +3,82 @@ const User = require("./User")
 const { Op } = require("sequelize")
 const bcrypt = require("bcryptjs")
 const router = express.Router()
+const flash = require("express-flash")
+const validator = require("validator")
+const getValueOrDefault = require("../utils/verification");
 
 
 router.get("/users/create", (request, response) => {
-    response.render("admin/users/create_user")
+    var username_err = request.flash("username_err")
+    var email_err = request.flash("email_err")
+    var password_err = request.flash("password_err")
+    var username = request.flash("username")
+    var email = request.flash("email")
+    var password = request.flash("password")
+    username_err = getValueOrDefault(username_err, undefined);
+    email_err = getValueOrDefault(email_err, undefined);
+    password_err = getValueOrDefault(password_err, undefined);
+
+    username = getValueOrDefault(username);
+    email = getValueOrDefault(email);
+    password = getValueOrDefault(password);
+    response.render("admin/users/create_user", {username_err, email_err, password_err, username, email, password})
 })
 
+
+
 router.post("/user/save", (request, response) => {
-    var username = request.body.name
-    var email = request.body.email
-    var password = request.body.password
-    User.findOne({
-        where: {
-            email: email
-        }
-    }).then(user => {
-        if(user != undefined) {
-            response.redirect("/users/create")
-        }
-        else 
-        {
-            var salt = bcrypt.genSaltSync(10)
-            var hash = bcrypt.hashSync(password, salt)
-            User.create({
-                username: username,
-                email: email,
-                password: hash
-            }).then(() => {
-                response.redirect("/")
-            }).catch((err) => {
-                response.redirect("/users/create")
-            })
-        }
-    }).catch((err) => {
+    var {username, email, password} = request.body
+    var username_err
+    var email_err
+    var password_err
+    if(!validator.isEmail(email))
+        email_err = 'Email Invalido!!'
+    if(!validator.isAlphanumeric(username) || username.length < 3)
+        username_err = 'Nome Invalido!!'
+    if(password == "" || password == undefined || password.length < 5)
+        password_err = 'Senha Invalida'
+
+    if(username_err != undefined || email_err != undefined) {
+        request.flash("username_err", username_err)
+        request.flash("email_err", email_err)
+        request.flash("password_err", password_err)
+        request.flash("username", username)
+        request.flash("email", email)
+        request.flash("password", password)
         response.redirect("/users/create")
-    })
+    }
+    else {
+    
+        User.findOne({
+            where: {
+                email: email
+            }
+        }).then(user => {
+            if(user != undefined) {
+                response.redirect("/users/create")
+            }
+            else 
+            {
+                var salt = bcrypt.genSaltSync(10)
+                var hash = bcrypt.hashSync(password, salt)
+                User.create({
+                    username: username,
+                    email: email,
+                    password: hash
+                }).then(() => {
+                    response.redirect("/")
+                }).catch((err) => {
+                    response.redirect("/users/create")
+                })
+            }
+        }).catch((err) => {
+            response.redirect("/users/create")
+        })
+    }
 })
+
+
 
 router.get("/user/login", (request, response) => {
     response.render("admin/users/login_user", { user: null, title: 'Login' })
